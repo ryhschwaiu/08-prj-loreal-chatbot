@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -19,17 +19,79 @@
     <div class="page-wrapper">
       <!------- Header / Branding ------->
       <header class="site-header">
-        <h1 class="site-title">Smart Product Advisor</h1>
+        <div class="brand-lockup">
+          <img
+            src="img/loreal-logo.png"
+            alt="L'Oreal logo"
+            class="brand-logo"
+          />
+          <div>
+            <p class="brand-kicker">L'Oreal Paris</p>
+            <h1 class="site-title">Beauty Advisor Chatbot</h1>
+          </div>
+        </div>
       </header>
 
       <!------- Chat Area ------->
       <main>
         <section class="chatbox">
-          <div id="chatWindow" class="chat-window">
-            <!-- messages will be appended here via JS -->
+          <div class="chat-window-stage">
+            <div
+              id="profileOverlay"
+              class="profile-overlay hidden"
+              aria-hidden="true"
+            >
+              <div
+                class="profile-window"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="profileTitle"
+              >
+                <div class="profile-window__header">
+                  <h2 id="profileTitle">Profile</h2>
+                  <button
+                    type="button"
+                    id="closeProfileBtn"
+                    class="icon-button icon-button--ghost"
+                  >
+                    <span class="material-icons" aria-hidden="true">close</span>
+                    <span class="visually-hidden">Close profile</span>
+                  </button>
+                </div>
+
+                <div id="profileContent" class="profile-content"></div>
+
+                <div class="profile-window__footer">
+                  <button
+                    type="button"
+                    id="clearProfileBtn"
+                    class="clear-profile-btn"
+                  >
+                    <span class="material-icons" aria-hidden="true"
+                      >delete</span
+                    >
+                    <span>Clear</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div id="chatWindow" class="chat-window">
+              <!-- messages will be appended here via JS -->
+            </div>
           </div>
 
           <form id="chatForm" class="chat-form">
+            <button
+              type="button"
+              id="profileBtn"
+              class="profile-btn"
+              aria-label="Open profile"
+              aria-expanded="false"
+            >
+              <span class="material-icons" aria-hidden="true">person</span>
+            </button>
+
             <label for="userInput" class="visually-hidden">Message</label>
             <input
               id="userInput"
